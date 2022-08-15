@@ -63,6 +63,7 @@
             <label class="form__label" for="form__number">Card Number</label>
             <input
               type="text"
+              pattern="\d*"
               autocomplete="cc-number"
               placeholder="e.g. 1234 5678 9123 0000"
               class="form__number"
@@ -88,6 +89,7 @@
               />
               <input
                 type="text"
+                pattern="\d*"
                 autocomplete="cc-exp-year"
                 placeholder="YY"
                 class="form__exp-year"
@@ -103,6 +105,7 @@
             <label class="form__label" for="form__cvc">CVC</label>
             <input
               type="text"
+              pattern="\d*"
               autocomplete="cc-csc"
               placeholder="e.g. 123"
               class="form__cvc"
