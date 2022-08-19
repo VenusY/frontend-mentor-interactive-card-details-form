@@ -1,6 +1,6 @@
 # frontend-mentor-interactive-card-details-form
 
-### The challenge
+## The challenge
 
 Users should be able to:
 
@@ -10,7 +10,8 @@ Users should be able to:
   - The card number, expiry date, or CVC fields are in the wrong format
 - View the optimal layout depending on their device's screen size
 - See hover, active, and focus states for interactive elements on the page
-### Built with
+
+## Built with
 
 - Semantic HTML5 markup
 - SCSS
@@ -18,7 +19,7 @@ Users should be able to:
 - Flexbox
 - Mobile-first workflow
 
-### What I learned
+## What I learned
 
 **Bringing up the numerical keyboard on mobile using the `pattern` attribute**
 
@@ -90,6 +91,6 @@ For the cvc, the `maxlength` was set to 3.
 />
 ```
 
-### Useful resources
+## Useful resources
 
 - [Gradient borders](https://css-tricks.com/gradient-borders-in-css/) - Explains how to use wrapper elements to achieve gradient borders + other methods.
