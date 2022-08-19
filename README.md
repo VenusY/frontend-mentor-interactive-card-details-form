@@ -25,6 +25,18 @@ Users should be able to:
 
 You can apply `pattern="[0-9]*"` and `inputmode="numeric"` on input fields to bring up the numerical keyboard for mobile users even if the `type` attribute is set to `"text"`. The reason for doing it this way is to prevent the spinner from appearing.
 
+```html
+<input
+  type="text"
+  pattern="[0-9]*"
+  maxlength="19"
+  autocomplete="cc-number"
+  placeholder="e.g. 1234 5678 9123 0000"
+  class="form__input-field form__number"
+  id="form__number"
+/>
+```
+
 **Gradient border**
 
 Using linear gradients for borders aren't possible at the time of making of this project.
