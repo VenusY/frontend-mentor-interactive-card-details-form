@@ -21,9 +21,9 @@ Users should be able to:
 
 ## What I learned
 
-**Bringing up the numerical keyboard on mobile using the `pattern` attribute**
+**Bringing up the numerical keyboard on mobile using the `pattern` and `inputmode` attributes**
 
-You can apply `pattern="\d*"` on input fields to bring up the numerical keyboard for mobile users even if the `type` attribute is set to `"text"`. The reason for doing it this way is to remove the spinner that increments/decrements.
+You can apply `pattern="[0-9]*"` and `inputmode="numeric"` on input fields to bring up the numerical keyboard for mobile users even if the `type` attribute is set to `"text"`. The reason for doing it this way is to prevent the spinner from appearing.
 
 **Gradient border**
 
