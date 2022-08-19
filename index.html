@@ -11,10 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-
     <link
       rel="icon"
       type="image/png"
@@ -29,7 +27,7 @@
       <h1 class="heading--hidden">Interactive card details form</h1>
 
       <div class="card">
-        <div class="card__front">
+        <div class="card__face card__front">
           <img src="images/card-logo.svg" alt="Card logo" class="card__logo" />
           <p class="card__number">0000 0000 0000 0000</p>
           <div class="card__bottom-row">
@@ -38,62 +36,22 @@
           </div>
         </div>
 
-        <div class="card__back">
+        <div class="card__face card__back">
           <p class="card__cvc">000</p>
         </div>
       </div>
 
       <div class="container">
-        <form class="form" id="form">
-          <div class="form__name-container">
+        <form novalidate class="form" id="form">
+          <div class="form__container">
             <label class="form__label" for="form__name">Cardholder Name</label>
-            <input
-              type="text"
-              autocomplete="name"
-              placeholder="e.g. Jane Appleseed"
-              class="form__name"
-              id="form__name"
-            />
-            <p class="form__error-message form__error-message--hidden">
-              Name cannot be empty
-            </p>
-          </div>
-
-          <div class="form__number-container">
-            <label class="form__label" for="form__number">Card Number</label>
-            <input
-              type="text"
-              pattern="\d*"
-              autocomplete="cc-number"
-              placeholder="e.g. 1234 5678 9123 0000"
-              class="form__number"
-              id="form__number"
-            />
-            <p class="form__error-message form__error-message--hidden">
-              Wrong format, numbers only
-            </p>
-          </div>
-
-          <div class="form__exp-date-container">
-            <label class="form__label" for="form__exp-month"
-              >Exp. Date (MM/YY)</label
-            >
-            <div class="form__exp-date-container">
+            <div class="form__input-field-border">
               <input
                 type="text"
-                pattern="\d*"
-                autocomplete="cc-exp-month"
-                placeholder="MM"
-                class="form__exp-month"
-                id="form__exp-month"
-              />
-              <input
-                type="text"
-                pattern="\d*"
-                autocomplete="cc-exp-year"
-                placeholder="YY"
-                class="form__exp-year"
-                id="form__exp-year"
+                autocomplete="name"
+                placeholder="e.g. Jane Appleseed"
+                class="form__input-field form__name"
+                id="form__name"
               />
             </div>
             <p class="form__error-message form__error-message--hidden">
@@ -101,36 +59,102 @@
             </p>
           </div>
 
-          <div class="form__cvc-container">
-            <label class="form__label" for="form__cvc">CVC</label>
-            <input
-              type="text"
-              pattern="\d*"
-              autocomplete="cc-csc"
-              placeholder="e.g. 123"
-              class="form__cvc"
-              id="form__cvc"
-            />
+          <div class="form__container">
+            <label class="form__label" for="form__number">Card Number</label>
+            <div class="form__input-field-border">
+              <input
+                type="text"
+                pattern="[0-9]*"
+                maxlength="19"
+                autocomplete="cc-number"
+                placeholder="e.g. 1234 5678 9123 0000"
+                class="form__input-field form__number"
+                id="form__number"
+              />
+            </div>
             <p class="form__error-message form__error-message--hidden">
               Can't be blank
             </p>
+            <p class="form__error-message form__error-message--hidden">
+              Wrong format, numbers only
+            </p>
+          </div>
+
+          <div class="form__container form__bottom-row">
+            <div>
+              <label class="form__label" for="form__exp-month"
+                >Exp. Date (MM/YY)</label
+              >
+              <div class="form__exp-date-container">
+                <div class="form__input-field-border">
+                  <input
+                    type="text"
+                    pattern="[0-9]*"
+                    maxlength="2"
+                    autocomplete="cc-exp-month"
+                    placeholder="MM"
+                    class="form__input-field form__exp-month"
+                    id="form__exp-month"
+                  />
+                </div>
+                <div class="form__input-field-border">
+                  <input
+                    type="text"
+                    pattern="[0-9]*"
+                    maxlength="2"
+                    autocomplete="cc-exp-year"
+                    placeholder="YY"
+                    class="form__input-field form__exp-year"
+                    id="form__exp-year"
+                  />
+                </div>
+              </div>
+              <p class="form__error-message form__error-message--hidden">
+                Can't be blank
+              </p>
+              <p class="form__error-message form__error-message--hidden">
+                Wrong format, numbers only
+              </p>
+            </div>
+
+            <div>
+              <label class="form__label" for="form__cvc">CVC</label>
+              <div class="form__input-field-border">
+                <input
+                  type="text"
+                  pattern="[0-9]*"
+                  maxlength="3"
+                  autocomplete="cc-csc"
+                  placeholder="e.g. 123"
+                  class="form__input-field form__cvc"
+                  id="form__cvc"
+                />
+              </div>
+              <p class="form__error-message form__error-message--hidden">
+                Can't be blank
+              </p>
+              <p class="form__error-message form__error-message--hidden">
+                Wrong format, numbers only
+              </p>
+            </div>
           </div>
 
           <button type="submit" class="form__submit-button">Confirm</button>
         </form>
 
-        <div class="form--completed">
+        <div class="form__completed-state form__completed-state--hidden">
           <img
             src="images/icon-complete.svg"
             alt="Tick icon"
             class="form__tick-icon"
           />
-          <p class="form__acknowledgement">Thank you</p>
+          <p class="form__acknowledgement">Thank you!</p>
           <p class="form__confirmation">We've added your card details</p>
           <button type="button" class="form__continue-button">Continue</button>
         </div>
       </div>
       <!-- .container -->
     </main>
+    <script src="js/index.js"></script>
   </body>
 </html>
