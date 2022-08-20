@@ -1,0 +1,15 @@
+@mixin center-object {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin remove-link-styles {
+  color: inherit;
+  text-decoration: none;
+}
+
+@mixin margin-padding-reset {
+  margin: 0;
+  padding: 0;
+}
