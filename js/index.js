@@ -171,7 +171,7 @@ function validateForm(e) {
         expDateErrorMessages[2].classList.add("form__error-message--hidden");
     }
     
-    // Set border colour and display on card
+    // Set border colour
     if (expMonthInvalidBorder === true) {
         expMonthBorder.classList.add("form__input-field-border--invalid");
     } else {
