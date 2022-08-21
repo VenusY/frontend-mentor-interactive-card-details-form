@@ -277,6 +277,3 @@ cvcInputField.addEventListener("keydown", preventInput);
 cvcInputField.addEventListener("paste", preventPaste);
 
 cardDetailsForm.addEventListener("submit", validateForm);
-
-// TODO
-// CVC validation
