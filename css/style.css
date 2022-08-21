@@ -13,6 +13,7 @@ main {
 
 .card__face {
   color: white;
+  text-transform: uppercase;
 }
 .card__number {
   font-size: 18px;
@@ -21,9 +22,6 @@ main {
 .card__bottom-row {
   font-size: 10px;
   letter-spacing: 1px;
-}
-.card__name {
-  text-transform: uppercase;
 }
 .card__cvc {
   font-size: 10px;

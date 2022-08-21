@@ -9,6 +9,7 @@ main {
 .card {
   &__face {
     color: white;
+    text-transform: uppercase;
   }
 
   &__number {
@@ -19,10 +20,6 @@ main {
   &__bottom-row {
     font-size: 10px;
     letter-spacing: 1px;
-  }
-
-  &__name {
-    text-transform: uppercase;
   }
 
   &__cvc {
