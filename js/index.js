@@ -52,18 +52,14 @@ function validateForm(e) {
     const nameInputField = document.querySelector("#form__name");
     const nameBorder = nameInputField.parentElement;
     const nameErrorMessage = nameBorder.nextElementSibling;
-
-    const cardholderName = document.querySelector(".card__name");
     
     // If the name input field is blank
     if (!nameInputField.value) {
         nameBorder.classList.add("form__input-field-border--invalid");
         nameErrorMessage.classList.remove("form__error-message--hidden");
-        cardholderName.textContent = "Jane Appleseed";
     } else {
         nameBorder.classList.remove("form__input-field-border--invalid");
         nameErrorMessage.classList.add("form__error-message--hidden");
-        cardholderName.textContent = nameInputField.value;
     }
     
     // Card number validation
@@ -73,15 +69,10 @@ function validateForm(e) {
     const numberErrorMessage2 = numberErrorMessage1.nextElementSibling; // Incorrect format
     const numberErrorMessage3 = numberErrorMessage2.nextElementSibling; // Input length
     
-    // Display on card
-    const cardNumber = document.querySelector(".card__number");
-    cardNumber.textContent = numberInputField.value;
-    
     // If the number input field is blank
     
     if (!cardNumberInputField.value) {
         numberErrorMessage1.classList.remove("form__error-message--hidden");
-        cardNumber.textContent = "0000 0000 0000 0000";
     } else {
         numberErrorMessage1.classList.add("form__error-message--hidden");
     }
@@ -128,10 +119,6 @@ function validateForm(e) {
     const expDateErrorMessages =  Array.from(document.querySelector(".form__exp-date-error-messages").children);
     let expMonthInvalidBorder = false;
     let expYearInvalidBorder = false;
-
-    const cardExpDate = document.querySelector(".card__exp-date");
-    let cardExpMonth = expMonthInputField.value;
-    let cardExpYear = expYearInputField.value;
     
     // If the exp month/year input field is blank
     if (!expMonthInputField.value || !expYearInputField.value) {
@@ -142,12 +129,10 @@ function validateForm(e) {
     
     if (!expMonthInputField.value) {
         expMonthInvalidBorder = true;
-        cardExpMonth = "00";
     }
     
     if (!expYearInputField.value) {
         expYearInvalidBorder = true;
-        cardExpYear = "00";
     }
     
     // If the exp month/year contains non-integer characters
@@ -199,21 +184,14 @@ function validateForm(e) {
         expYearBorder.classList.remove("form__input-field-border--invalid");
     }
     
-    cardExpDate.textContent = `${cardExpMonth}/${cardExpYear}`;
-
     // CVC validation
     const cvcInputField = document.querySelector("#form__cvc");
     const cvcBorder = cvcInputField.parentElement;
     const cvcErrorMessages = Array.from(document.querySelector(".form__cvc-error-messages").children);
     
-    // Display on card
-    const cardCvc = document.querySelector(".card__cvc");
-    cardCvc.textContent = cvcInputField.value;
-    
     // If the cvc input field is blank
     if (!cvcInputField.value) {
         cvcErrorMessages[0].classList.remove("form__error-message--hidden");
-        cardCvc.textContent = "000";
     } else {
         cvcErrorMessages[0].classList.add("form__error-message--hidden");
     }
@@ -281,23 +259,53 @@ function validateForm(e) {
     }
 }
 
+function displayInfoOnCard() {
+    const cardholderName = document.querySelector(".card__name");
+    if (this.id === "form__name") {
+        cardholderName.textContent = this.value || "Jane Appleseed";
+    }
+    
+    const cardNumber = document.querySelector(".card__number");
+    if (this.id === "form__number") {
+        cardNumber.textContent = this.value || "0000 0000 0000 0000";
+    }
+    
+    const cardExpDate = document.querySelector(".card__exp-date");
+    const cardExpMonth = document.querySelector("#form__exp-month").value;
+    const cardExpYear = document.querySelector("#form__exp-year").value;
+    if (this.id === "form__exp-month" || this.id === "form__exp-year") {
+        cardExpDate.textContent = `${cardExpMonth || "00"}/${cardExpYear || "00"}`;
+    }
+    
+    const cardCvc = document.querySelector(".card__cvc");
+    if (this.id === "form__cvc") {
+        cardCvc.textContent = this.value || "000";
+    }
+}
+
 const cardDetailsForm = document.querySelector("#form");
+const nameInputField = document.querySelector("#form__name");
 const cardNumberInputField = document.querySelector("#form__number");
 const expMonthInputField = document.querySelector("#form__exp-month");
 const expYearInputField = document.querySelector("#form__exp-year");
 const cvcInputField = document.querySelector("#form__cvc");
 
 cardNumberInputField.addEventListener("keydown", preventInput);
+expMonthInputField.addEventListener("keydown", preventInput);
+expYearInputField.addEventListener("keydown", preventInput);
+cvcInputField.addEventListener("keydown", preventInput);
+
 cardNumberInputField.addEventListener("paste", preventPaste);
+expMonthInputField.addEventListener("paste", preventPaste);
+expYearInputField.addEventListener("paste", preventPaste);
+cvcInputField.addEventListener("paste", preventPaste);
+
 cardNumberInputField.addEventListener("input", formatInput);
 
-expMonthInputField.addEventListener("keydown", preventInput);
-expMonthInputField.addEventListener("paste", preventPaste);
-
-expYearInputField.addEventListener("keydown", preventInput);
-expYearInputField.addEventListener("paste", preventPaste);
-
-cvcInputField.addEventListener("keydown", preventInput);
-cvcInputField.addEventListener("paste", preventPaste);
+nameInputField.addEventListener("input", displayInfoOnCard);
+cardNumberInputField.addEventListener("input", displayInfoOnCard);
+expMonthInputField.addEventListener("input", displayInfoOnCard);
+expYearInputField.addEventListener("input", displayInfoOnCard);
+cvcInputField.addEventListener("input", displayInfoOnCard);
 
 cardDetailsForm.addEventListener("submit", validateForm);
