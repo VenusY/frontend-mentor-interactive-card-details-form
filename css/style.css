@@ -43,15 +43,15 @@ main {
   text-transform: uppercase;
 }
 .form__input-field::-moz-placeholder {
-  color: var(--light-grayish-violet);
+  color: #cbcbcb;
   text-transform: none;
 }
 .form__input-field:-ms-input-placeholder {
-  color: var(--light-grayish-violet);
+  color: #cbcbcb;
   text-transform: none;
 }
 .form__input-field::placeholder {
-  color: var(--light-grayish-violet);
+  color: #cbcbcb;
   text-transform: none;
 }
 .form__name {
@@ -91,6 +91,10 @@ body {
   background-size: 100% 240px;
 }
 
+.card__face {
+  border-radius: 10px;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+}
 .card__front {
   background: url("../images/bg-card-front.png");
   background-repeat: no-repeat;

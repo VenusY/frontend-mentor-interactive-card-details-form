@@ -46,7 +46,7 @@ main {
     text-transform: uppercase;
 
     &::placeholder {
-      color: var(--light-grayish-violet);
+      color: #cbcbcb;
       text-transform: none;
     }
   }
@@ -97,6 +97,11 @@ body {
 }
 
 .card {
+  &__face {
+    border-radius: 10px;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+  }
+
   &__front {
     background: url("../images/bg-card-front.png");
     background-repeat: no-repeat;
