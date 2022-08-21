@@ -225,6 +225,36 @@ function validateForm(e) {
     } else {
         cvcBorder.classList.remove("form__input-field-border--invalid");
     }
+
+    // Display completed state
+    let invalidField = false;
+
+    if (!nameErrorMessage.classList.contains("form__error-message--hidden")) {
+        invalidField = true;
+    }
+
+    errorMessageArray.forEach(element => {
+        if (!element.classList.contains("form__error-message--hidden")) {
+            invalidField = true;
+        }
+    });
+
+    expDateErrorMessages.forEach(element => {
+        if (!element.classList.contains("form__error-message--hidden")) {
+            invalidField = true;
+        }
+    });
+
+    cvcErrorMessages.forEach(element => {
+        if (!element.classList.contains("form__error-message--hidden")) {
+            invalidField = true;
+        }
+    });
+
+    if (!invalidField) {
+        this.classList.add("form--hidden");
+        this.nextElementSibling.classList.remove("form__completed-state--hidden");
+    }
 }
 
 const cardDetailsForm = document.querySelector("#form");
