@@ -78,6 +78,9 @@
             <p class="form__error-message form__error-message--hidden">
               Wrong format, numbers only
             </p>
+            <p class="form__error-message form__error-message--hidden">
+              Must be 12 characters long
+            </p>
           </div>
 
           <div class="form__container form__bottom-row">
@@ -109,12 +112,6 @@
                   />
                 </div>
               </div>
-              <p class="form__error-message form__error-message--hidden">
-                Can't be blank
-              </p>
-              <p class="form__error-message form__error-message--hidden">
-                Wrong format, numbers only
-              </p>
             </div>
 
             <div>
@@ -130,11 +127,31 @@
                   id="form__cvc"
                 />
               </div>
+            </div>
+          </div>
+          <!-- .form__bottom-row -->
+          <div class="form__error-message-container">
+            <div class="form__exp-date-error-messages">
               <p class="form__error-message form__error-message--hidden">
                 Can't be blank
               </p>
               <p class="form__error-message form__error-message--hidden">
                 Wrong format, numbers only
+              </p>
+              <p class="form__error-message form__error-message--hidden">
+                Must be 2 characters long
+              </p>
+            </div>
+
+            <div class="form__cvc-error-messages">
+              <p class="form__error-message form__error-message--hidden">
+                Can't be blank
+              </p>
+              <p class="form__error-message form__error-message--hidden">
+                Wrong format, numbers only
+              </p>
+              <p class="form__error-message form__error-message--hidden">
+                Must be 3 characters long
               </p>
             </div>
           </div>
